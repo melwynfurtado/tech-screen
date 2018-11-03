@@ -1,10 +1,10 @@
 import uuid from 'uuid';
 import sortBy from 'lodash/sortBy'
 
-const addToIdea = (idea, time=Date.now()) => {
+const addToIdea = (idea, time=Date.now(), uuid=uuid()) => {
   return {
     ...idea,
-    uuid: uuid(),
+    uuid,
     createdTime: time,
     updatedTime: time,
   }
