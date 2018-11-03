@@ -1,0 +1,29 @@
+.idea {
+  margin-bottom: 10px;
+}
+
+.view-mode, .editable-field {
+  position: relative;
+}
+
+.view-mode .card-title {
+  margin-bottom: 0;
+}
+
+.view-mode .edit-btn {
+  display: none;
+}
+
+.view-mode:hover .edit-btn {
+  display: block;
+}
+
+.edit-btns, .edit-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.button-group .btn {
+  margin-right: 3px;
+}
