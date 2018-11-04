@@ -8,10 +8,11 @@ import Field from '../Field';
 class Board extends Component {
   constructor(props) {
     super(props);
+    const { ideas, sortByKey } = props;
     this.state = {
-      ideas: props.ideas || [],
+      ideas: ideas,
       showCreateForm: false,
-      sortByKey: 'createdTime'
+      sortByKey: sortByKey,
     };    
     this.updateIdea = this.updateIdea.bind(this);
     this.deleteIdea = this.deleteIdea.bind(this);    
@@ -62,6 +63,7 @@ class Board extends Component {
 
   render() {
     const { ideas, showCreateForm, sortByKey } = this.state
+    const { sortOptions } = this.props;
     return (
       <div className="board">
         <div className="sort-ctr">
@@ -71,10 +73,7 @@ class Board extends Component {
             id="sort-board"
             value={sortByKey}
             onValChange={this.handleOnSort}
-            options={[
-              { name: 'Alphabetically', value: 'title' }, 
-              { name: 'Creation date', value: 'createdTime' },
-            ]}
+            options={sortOptions}
             />
         </div>
         {
@@ -113,6 +112,15 @@ Board.propTypes = {
       updatedTime: PropTypes.number.isRequired, 
     })
   ),
+}
+
+Board.defaultProps = {
+  ideas: [],
+  sortOptions: [
+    { name: 'Alphabetically', value: 'title' }, 
+    { name: 'Creation date', value: 'createdTime' },
+  ],
+  sortByKey: 'createdTime',
 }
 
 export default Board;

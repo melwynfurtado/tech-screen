@@ -18,7 +18,7 @@ const ideas = [
     createdTime: 1541258930814,
     updatedTime: 1541258930814,
   },
-]
+];
 
 describe('App component', () => {
   it('renders without crashing', () => {

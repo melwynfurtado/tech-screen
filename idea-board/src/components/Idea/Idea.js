@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Title from './Title'
 import format from 'date-fns/format'
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import Description from './Description/Description';
 import './Idea.css';
 
