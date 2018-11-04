@@ -1,39 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FieldWrapper from './FieldWrapper'
 
 const Field = ({ type, label, id, value, onValChange, ...rest }) => {
   switch(type) {
     case 'textarea':
       return (
-        <div className={`form-group row ${id}`}>
-          <label htmlFor={id} className="col-sm-2 col-form-label">{label}: </label>
-          <div className="col-sm-7">
-            <textarea {...{ id, value }} onChange={onValChange} className="form-control" {...rest} />        
-          </div>
-        </div>
+        <FieldWrapper {...{id, label}}>
+          <textarea {...{ id, value }} onChange={onValChange} className="form-control" {...rest} />
+        </FieldWrapper>
       );
     case 'select':
       return (
-        <div className={`form-group row ${id}`}>
-          <label htmlFor={id} className="col-sm-2 col-form-label">{label}: </label>        
-          <div className="col-sm-7">
-            <select {...{ id, value }} onChange={onValChange} className="form-control" {...rest}>
-              <option value="">Please select</option>
-              {
-                rest.options.map(({value, name}) => <option key={value} value={value}>{name}</option>)
-              }
-            </select>        
-          </div>
-        </div>
+        <FieldWrapper {...{id, label}}>
+          <select {...{ id, value }} onChange={onValChange} className="form-control" {...rest}>
+            <option value="">Please select</option>
+            {
+              rest.options.map(({value, name}) => <option key={value} value={value}>{name}</option>)
+            }
+          </select>        
+        </FieldWrapper>
       )        
     default:
       return (
-        <div className={`form-group row ${id}`}>
-          <label htmlFor={id} className="col-sm-2 col-form-label">{label}: </label>        
-          <div className="col-sm-7">
-            <input type="text" {...{ id, value }} onChange={onValChange} className="form-control" {...rest} />        
-          </div>
-        </div>
+        <FieldWrapper {...{id, label}}>
+          <input type="text" {...{ id, value }} onChange={onValChange} className="form-control" {...rest} />        
+        </FieldWrapper>
       )
   }
 }

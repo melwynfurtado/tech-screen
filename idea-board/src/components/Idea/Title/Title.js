@@ -11,7 +11,14 @@ const Title = ({ title, uuid, onUpdate }) => (
     onUpdate={onUpdate} 
     render={({ inEditMode, value, handleOnChange }) => (
       inEditMode ?
-        <Field value={value} type="text" label="Title" id="title" onValChange={handleOnChange} />
+        <Field 
+          autoFocus={true} 
+          value={value} 
+          type="text" 
+          label="Title" 
+          id="title" 
+          onValChange={handleOnChange} 
+        />
       :
         <h4 className="card-title">{title}</h4>
     )}

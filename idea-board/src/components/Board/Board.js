@@ -89,7 +89,12 @@ class Board extends Component {
         }
         {
           showCreateForm ? <CreateForm onSave={this.saveIdea} onCancel={this.handleOnCancel} /> : 
-            <button type="button" name="create-idea" className="btn btn-sm btn-primary" onClick={this.handleOnCreate}>
+            <button 
+              type="button" 
+              name="create-idea" 
+              className="btn btn-sm btn-primary" 
+              onClick={this.handleOnCreate}
+            >
               Create Idea
             </button>
         }

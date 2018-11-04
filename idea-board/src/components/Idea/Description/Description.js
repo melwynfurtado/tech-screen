@@ -11,7 +11,14 @@ const Description = ({ desc, uuid, onUpdate }) => (
     onUpdate={onUpdate} 
     render={({ inEditMode, value, handleOnChange }) => (
       inEditMode ?
-        <Field value={value} type="textarea" label="Description" id="title" onValChange={handleOnChange} />
+        <Field 
+          autoFocus={true} 
+          value={value} 
+          type="textarea" 
+          label="Description" 
+          id="title" 
+          onValChange={handleOnChange} 
+        />
       :
         <p className="card-text">{desc}</p>
     )}

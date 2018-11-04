@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
+import Board from '../Board';
 
 const ideas = [
   {
@@ -19,6 +20,18 @@ const ideas = [
   },
 ]
 
-it('renders without crashing', () => {
-  shallow(<App ideas={ideas} />);
-});
+describe('App component', () => {
+  it('renders without crashing', () => {
+    shallow(<App ideas={ideas} />);
+  });
+
+  it('renders idea board heading', () => {
+    const wrapper = shallow(<App ideas={ideas} />);
+    expect(wrapper.find('h1').text()).toContain('Idea Board App');
+  });
+
+  it('renders one <Board /> component ', () => {
+    const wrapper = shallow(<App ideas={ideas} />);
+    expect(wrapper.find(Board).length).toEqual(1);
+  })
+})
