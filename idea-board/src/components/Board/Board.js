@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Idea from '../Idea'
-import CreateForm from '../Idea/CreateForm'
+import CreateForm from './CreateForm'
 import { sortIdeas } from '../../utils/idea'
 import Field from '../Field';
 

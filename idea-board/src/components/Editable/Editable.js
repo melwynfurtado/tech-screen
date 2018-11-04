@@ -50,6 +50,7 @@ class Editable extends Component {
   render() {
     const { inEditMode, showEdit } = this.state;
 
+    // Pass props to get jsx specific to component calling render prop component (Editable)
     const renderPropJsx = this.props.render({
       ...this.state, 
       handleOnChange: this.handleOnChange,

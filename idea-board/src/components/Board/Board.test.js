@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Board from './Board';
 import Field from '../Field';
 import Idea from '../Idea';
-import CreateForm from '../Idea/CreateForm';
+import CreateForm from './CreateForm';
 
 describe('Board component', () => {
   let wrapper;
