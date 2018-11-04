@@ -46,7 +46,7 @@ class CreateForm extends Component {
     const { title, desc } = this.state;
 
     return ( 
-      <form name="create-idea" className="create-idea " onSubmit={this.handleOnSave}>
+      <form name="create-idea" className="create-idea" onSubmit={this.handleOnSave}>
         <Field autoFocus={true} type="text" label="Title" id="title" onValChange={this.handleOnChange} value={title} />
         <Field type="textarea" label="Description" id="desc" onValChange={this.handleOnChange} value={desc} />
         <div className="button-group">
@@ -60,6 +60,7 @@ class CreateForm extends Component {
 
 CreateForm.propTypes = {
   onSave: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
 }
 
 export default CreateForm;
