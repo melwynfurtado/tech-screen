@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import CreateForm from './CreateForm';
 import Field from '../../Field';
+import * as utils from '../../../utils/idea';
 
 describe('CreateForm component', () => {
   let wrapper;
@@ -44,9 +45,18 @@ describe('CreateForm component', () => {
   });  
 
   it('should call onSave() when form submitted if idea is valid', () => {
+    const expObj = {
+      uuid: '12345',
+      title: 'new title',
+      createdTime: 78900,
+      updatedTime: 78900,
+    }    
+    const addToIdeaStub = sinon.stub(utils, 'addToIdea');
+    addToIdeaStub.returns(expObj);
+
     wrapper.setState({ title: 'test', desc: 'test' });
     wrapper.find(createForm).simulate('submit', eventObj);
-    expect(onSaveSpy.calledOnce).toEqual(true);
+    expect(onSaveSpy.calledWith(expObj)).toEqual(true);
   });
 
   it('should call onCancel() when user cancels create idea form', () => {

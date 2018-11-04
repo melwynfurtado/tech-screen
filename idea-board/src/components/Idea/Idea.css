@@ -10,14 +10,6 @@
   margin-bottom: 0;
 }
 
-.view-mode .edit-btn {
-  display: none;
-}
-
-.view-mode:hover .edit-btn {
-  display: block;
-}
-
 .edit-btns, .edit-btn {
   position: absolute;
   right: 0;
