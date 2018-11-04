@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class FieldWrapper extends Component {
   render() {
@@ -12,6 +13,12 @@ class FieldWrapper extends Component {
       </div>    
     )
   }
+}
+
+FieldWrapper.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,  
+  children: PropTypes.node,
 }
 
 export default FieldWrapper;

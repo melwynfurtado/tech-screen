@@ -9,20 +9,22 @@ const Description = ({ desc, uuid, onUpdate }) => (
     name="desc"
     value={desc}
     onUpdate={onUpdate} 
-    render={({ inEditMode, value, handleOnChange }) => (
-      inEditMode ?
-        <Field 
-          autoFocus={true} 
-          value={value} 
-          type="textarea" 
-          label="Description" 
-          id="title" 
-          onValChange={handleOnChange} 
-        />
-      :
-        <p className="card-text">{desc}</p>
-    )}
+    render={descRender}
   />
+);
+
+const descRender = ({ inEditMode, value, handleOnChange }) => (
+  inEditMode ?
+    <Field 
+      autoFocus={true} 
+      value={value} 
+      type="textarea" 
+      label="Description" 
+      id="title" 
+      onValChange={handleOnChange} 
+    />
+  :
+    <p className="card-text">{value}</p>
 );
 
 Description.propTypes = {
@@ -30,4 +32,7 @@ Description.propTypes = {
   onUpdate: PropTypes.func.isRequired,
 };
 
+export {
+  descRender,
+}
 export default Description;

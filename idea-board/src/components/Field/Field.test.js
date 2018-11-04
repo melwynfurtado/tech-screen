@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import sinon from 'sinon'
 import Field from './Field';
 import FieldWrapper from './FieldWrapper';
 
@@ -49,5 +50,19 @@ describe('Field component', () => {
       />
     );
     expect(wrapper.find(FieldWrapper).length).toEqual(1);
+  });
+  
+  it('should call onValChange() when field value changes', () => {
+    const onValChangeStub = sinon.spy();
+    const e = { target: { value: 'test' } };
+    const wrapper = shallow(
+      <Field 
+        label="title"
+        id="title"
+        onValChange={onValChangeStub}
+      />
+    );
+    wrapper.find('input#title').simulate('change', e);
+    expect(onValChangeStub.calledWith(e)).toEqual(true);
   });  
 })

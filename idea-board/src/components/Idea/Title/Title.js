@@ -9,25 +9,30 @@ const Title = ({ title, uuid, onUpdate }) => (
     name="title"
     value={title}
     onUpdate={onUpdate} 
-    render={({ inEditMode, value, handleOnChange }) => (
-      inEditMode ?
-        <Field 
-          autoFocus={true} 
-          value={value} 
-          type="text" 
-          label="Title" 
-          id="title" 
-          onValChange={handleOnChange} 
-        />
-      :
-        <h4 className="card-title">{title}</h4>
-    )}
+    render={titleRender}
   />
 );
+
+const titleRender = ({ inEditMode, value, handleOnChange }) => (
+  inEditMode ?
+    <Field 
+      autoFocus={true} 
+      value={value} 
+      type="text" 
+      label="Title" 
+      id="title" 
+      onValChange={handleOnChange}
+    />
+  :
+    <h4 className="card-title">{value}</h4>
+)
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
 
+export {
+  titleRender,
+};
 export default Title;
